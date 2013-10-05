@@ -43,7 +43,7 @@
                 <div data-bind='with: Person' class="form-dinamico">
 
                     <fieldset>
-                        <legend>Recent Jobs</legend>
+                        <legend><span data-bind="text: Jobs().length"></span> Recent Jobs</legend>
                         <button data-bind="click: addJob" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> Add job</button>
 
                         <div class="dynamic-container" data-bind="foreach: Jobs">
@@ -53,7 +53,7 @@
 
                     <fieldset>
                         <button data-bind="click: addCourse" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> Add course</button>
-                        <legend>Courses</legend>
+                        <legend><span data-bind="text: Courses().length"></span> Courses</legend>
 
                         <div class="dynamic-container" data-bind="foreach: Courses">
                             @Html.EditorFor(model => model.Person.Courses[0]) <!-- will use 'CourseVM' editor on Views/Shared/EditorTemplates folder -->
@@ -62,7 +62,7 @@
 
                     <fieldset>
                         <button data-bind="click: addNickname" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> Add nickname</button>
-                        <legend>Nicknames</legend>
+                        <legend><span data-bind="text: Nicknames().length"></span> Nicknames</legend>
 
                         <div class="dynamic-container" data-bind="foreach: Nicknames">
                             @Html.EditorFor(model => model.Person.Nicknames[0], "NicknameVM") <!-- will use 'NicknameVM' editor on Views/Shared/EditorTemplates folder -->
@@ -72,7 +72,7 @@
 
                     <fieldset>
                         <button data-bind="click: addHouse" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> Add house</button>
-                        <legend>Houses</legend>
+                        <legend><span data-bind="text: Houses().length"></span> Houses</legend>
 
                         <div class="dynamic-container" data-bind="foreach: Houses">
                             @Html.EditorFor(model => model.Person.Houses[0]) <!-- will use 'HousesVM' editor on Views/Shared/EditorTemplates folder -->
