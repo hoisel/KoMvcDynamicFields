@@ -1,0 +1,58 @@
+﻿body
+        {
+            background-color:#F3F5F6;
+        }
+
+        .form-dinamico fieldset
+        {
+            position: relative;
+            margin-bottom:80px;
+        }
+
+            .form-dinamico fieldset .btn-xs
+            {
+                position: absolute;
+                top: 0px;
+                right: 5px;
+            }
+
+        .cm-content
+        {
+            padding-left: 60px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .navbar
+        {
+            background-color:#0f6590;
+            border-color:#0f6590;
+            color:#fff;
+        }
+
+        .delete-group {
+            display: inline-block;
+            vertical-align: middle;
+            margin-bottom: 0px;
+            padding-top: 13px;
+        }
+
+        .delete-group .btn-delete {
+            padding: 5px 5px;
+            font-size: 28px;
+            line-height: 1.33;
+            border-radius: 6px;
+            color: #CF3535;
+            cursor: pointer;
+        }
+
+        .form-control
+        {
+           border-color:#AFC0D3 ;
+        }
+
+        .form-inline .form-group
+        {
+            margin-bottom:10px;
+            width:45%;
+        }
