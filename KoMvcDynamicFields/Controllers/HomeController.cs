@@ -22,15 +22,15 @@ namespace KoMvcDynamicFields.Controllers
                             new HomeViewModel.JobVM { Company = "Secom", Job = "Analista" }
                         },
                     Courses = new List<HomeViewModel.CourseVM> { 
-                        new HomeViewModel.CourseVM {Id=1, Local="Mindworks",Name="Knockoutjs em 24hrs" },
-                        new HomeViewModel.CourseVM {Id=2, Local="UFES",Name="EF4 avançado" },
-                        new HomeViewModel.CourseVM {Id=3, Local="Sebrae",Name="MVC pipeline" },
+                        new HomeViewModel.CourseVM { Id=1, Local="Mindworks",Name="Knockoutjs em 24hrs" },
+                        new HomeViewModel.CourseVM { Id=2, Local="UFES",Name="EF4 avançado" },
+                        new HomeViewModel.CourseVM { Id=3, Local="Sebrae",Name="MVC pipeline" },
                     },
 
                     Houses = new List<HomeViewModel.HouseVM> { 
-                        new HomeViewModel.HouseVM{Address="Rua odette de oliveira, 234", City="Vitória" },
-                        new HomeViewModel.HouseVM{Address="Rua do canal, 45", City="Ilhéus" },
-                        new HomeViewModel.HouseVM{Address="Rua 6, casa 23", City="Serra" },
+                        new HomeViewModel.HouseVM{ Address="Rua odette de oliveira, 234", City="Vitória" },
+                        new HomeViewModel.HouseVM{ Address="Rua do canal, 45", City="Ilhéus" },
+                        new HomeViewModel.HouseVM{ Address="Rua 6, casa 23", City="Serra" },
                     },
                     Nicknames = new List<string> { "Ed", "ed2", "ed3", "ed4" }
                 }
