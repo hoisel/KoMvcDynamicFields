@@ -149,6 +149,7 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
@@ -165,6 +166,8 @@
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\knockout.dynamicName.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -182,6 +185,7 @@
     <Content Include="Views\Shared\EditorTemplates\CourseVM.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\NicknameVM.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\HouseVM.cshtml" />
+    <Content Include="Views\Shared\_html5shiv.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
