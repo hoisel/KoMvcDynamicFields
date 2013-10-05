@@ -5,7 +5,7 @@
         @Html.Label("Nickname")
         @Html.TextBoxFor(model => model, new { data_bind = "value: $data, dynamicName: $parent.Nicknames().length", @class = "form-control" })
     </div>
-    <div class="delete-group">
+    <div class="delete-group btn-effect-1">
         <span data-bind="click: $parent.removeNickname" class="glyphicon glyphicon-remove-circle btn-delete" title="remove this item"></span>
     </div>
 </div>
