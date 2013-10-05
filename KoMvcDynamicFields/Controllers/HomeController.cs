@@ -26,20 +26,26 @@ namespace KoMvcDynamicFields.Controllers
                         new HomeViewModel.CourseVM {Id=2, Local="UFES",Name="EF4 avançado" },
                         new HomeViewModel.CourseVM {Id=3, Local="Sebrae",Name="MVC pipeline" },
                     },
-                    Nicknames = new List<string> { "Ed","ed2","ed3","ed4"}
+
+                    Houses = new List<HomeViewModel.HouseVM> { 
+                        new HomeViewModel.HouseVM{Address="Rua odette de oliveira, 234", City="Vitória" },
+                        new HomeViewModel.HouseVM{Address="Rua do canal, 45", City="Ilhéus" },
+                        new HomeViewModel.HouseVM{Address="Rua 6, casa 23", City="Serra" },
+                    },
+                    Nicknames = new List<string> { "Ed", "ed2", "ed3", "ed4" }
                 }
             };
-            return this.View( viewModel );
+            return this.View(viewModel);
         }
 
 
 
         [HttpPost]
-        public ActionResult Index( HomeViewModel newModel )
+        public ActionResult Index(HomeViewModel newModel)
         {
             // coloque um break point aqui pra ver se o viewmodel foi submetido com sucesso
 
-            return RedirectToAction( "Index" );
+            return RedirectToAction("Index");
         }
     }
 }

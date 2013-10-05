@@ -10,7 +10,6 @@ ko.bindingHandlers.dynamicName = {
         var parent = $( element ).closest( parentSeletor );
         var parentIndex = parent.index();
 
-        console.log( parentIndex )
 
         var createDynamicName = ko.utils.unwrapObservable( valueAccessor() );
 
@@ -20,11 +19,13 @@ ko.bindingHandlers.dynamicName = {
 
         // altera propriedade name
         var name = jElement.attr( 'name' );
+        name = name.indexOf( '[0]' ) == -1 ? name + '[0]' : name; //adiciona indexação se não houver
         var modifiedPath = name.replace( /\[\d+\]/, '[' + parentIndex + ']' );
         element.name = modifiedPath;
 
         // altera propriedade id
         var id = jElement.attr( 'id' );
+        id = id.indexOf( '_0_' ) == -1 ? name + '_0_' : id; //adiciona indexação se não houver
         var modifiediD = id.replace( /\_\d+\_/, '_' + parentIndex + '_' );
         element.id = modifiediD;
 

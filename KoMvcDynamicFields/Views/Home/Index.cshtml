@@ -47,18 +47,16 @@
                         <button data-bind="click: addJob" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> Add job</button>
 
                         <div class="dynamic-container" data-bind="foreach: Jobs">
-                            @Html.EditorFor(model => model.Person.Jobs[0])  <!-- will use 'JobVM' editor on Views/Shared/EditorTemplates folder -->
+                            @Html.EditorFor(model => model.NewJob)  <!-- will use 'JobVM' editor on Views/Shared/EditorTemplates folder -->
                         </div>
                     </fieldset>
-
-
 
                     <fieldset>
                         <button data-bind="click: addCourse" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> Add course</button>
                         <legend>Courses</legend>
 
                         <div class="dynamic-container" data-bind="foreach: Courses">
-                            @Html.EditorFor(model => model.Person.Courses[0]) <!-- will use 'CourseVM' editor on Views/Shared/EditorTemplates folder -->
+                            @Html.EditorFor(model => model.NewCourse) <!-- will use 'CourseVM' editor on Views/Shared/EditorTemplates folder -->
                         </div>
                     </fieldset>
 
@@ -68,6 +66,16 @@
 
                         <div class="dynamic-container" data-bind="foreach: Nicknames">
                             @Html.EditorFor(model => model.Person.Nicknames[0], "NicknameVM") <!-- will use 'NicknameVM' editor on Views/Shared/EditorTemplates folder -->
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <button data-bind="click: addHouse" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> Add house</button>
+                        <legend>Houses</legend>
+
+                        <div class="dynamic-container" data-bind="foreach: Houses">
+                            @Html.EditorFor(model => model.NewHouse) <!-- will use 'HousesVM' editor on Views/Shared/EditorTemplates folder -->
                         </div>
                     </fieldset>
 

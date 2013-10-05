@@ -181,6 +181,7 @@
     <Content Include="Views\Shared\EditorTemplates\JobVM.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CourseVM.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\NicknameVM.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\HouseVM.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

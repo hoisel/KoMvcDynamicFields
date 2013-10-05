@@ -24,6 +24,14 @@ namespace KoMvcDynamicFields.Models
             get { return new CourseVM(); }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public HouseVM NewHouse
+        {
+            get { return new HouseVM(); }
+        }
+
 
         [Expand]
         public PersonVM Person { get; set; }
@@ -45,6 +53,7 @@ namespace KoMvcDynamicFields.Models
                 this.Jobs = new List<JobVM>();
                 this.Courses = new List<CourseVM>();
                 this.Nicknames = new List<string>();
+                this.Houses = new List<HouseVM>();
             }
 
 
@@ -56,9 +65,22 @@ namespace KoMvcDynamicFields.Models
 
             [Dynamic]
             public List<string> Nicknames { get; set; }
+
+            [Dynamic]
+            public List<HouseVM> Houses { get; set; }
         }
 
+        /// <summary>
+        /// Sem id
+        /// </summary>
+        public class HouseVM
+        {
+            public string Address { get; set; }
 
+            public string City { get; set; }
+
+            public int Rooms { get; set; }
+        }
 
         /// <summary>
         /// Sem id
