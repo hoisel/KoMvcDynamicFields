@@ -47,7 +47,7 @@
                         <button data-bind="click: addJob" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> Add job</button>
 
                         <div class="dynamic-container" data-bind="foreach: Jobs">
-                            @Html.EditorFor(model => model.NewJob)  <!-- will use 'JobVM' editor on Views/Shared/EditorTemplates folder -->
+                            @Html.EditorFor(model => model.Person.Jobs[0])  <!-- will use 'JobVM' editor on Views/Shared/EditorTemplates folder -->
                         </div>
                     </fieldset>
 
@@ -56,7 +56,7 @@
                         <legend>Courses</legend>
 
                         <div class="dynamic-container" data-bind="foreach: Courses">
-                            @Html.EditorFor(model => model.NewCourse) <!-- will use 'CourseVM' editor on Views/Shared/EditorTemplates folder -->
+                            @Html.EditorFor(model => model.Person.Courses[0]) <!-- will use 'CourseVM' editor on Views/Shared/EditorTemplates folder -->
                         </div>
                     </fieldset>
 
@@ -75,7 +75,7 @@
                         <legend>Houses</legend>
 
                         <div class="dynamic-container" data-bind="foreach: Houses">
-                            @Html.EditorFor(model => model.NewHouse) <!-- will use 'HousesVM' editor on Views/Shared/EditorTemplates folder -->
+                            @Html.EditorFor(model => model.Person.Houses[0]) <!-- will use 'HousesVM' editor on Views/Shared/EditorTemplates folder -->
                         </div>
                     </fieldset>
 
@@ -83,7 +83,7 @@
 
                     <br />
                     <br />
-                     <br />
+                    <br />
                     <br />
                 </div>
             }
