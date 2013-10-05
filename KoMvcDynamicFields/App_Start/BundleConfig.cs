@@ -23,8 +23,9 @@ namespace KoMvcDynamicFields
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/all/css").Include(              
-                "~/Content/bootstrap/bootstrap.min.css",
+            // ref:http://stackoverflow.com/questions/12533591/why-are-my-style-bundles-not-rendering-correctly-in-asp-net-mvc-4
+            bundles.Add(new StyleBundle("~/bundles/all/css").Include(              
+                "~/Content/bootstrap/bootstrap.css",
                 "~/Content/site.css"));
         }
     }
