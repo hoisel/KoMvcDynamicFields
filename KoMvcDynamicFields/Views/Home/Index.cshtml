@@ -1,20 +1,21 @@
-﻿@model KoMvcRepeatingFieldGroup.Models.HomeViewModel
-@using KoMvcRepeatingFieldGroup.Common
+﻿@model KoMvcDynamicFields.Models.HomeViewModel
+@using KoMvcDynamicFields.Common
 
 @{
     ViewBag.Title = "Home";
 }
 
 <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
-  <div class="container">
-    <div class="navbar-header">
-      <h2>MVC + ko = dynamic fields </h2>
+    <div class="container">
+        <div class="navbar-header">
+            <h2>MVC + ko = dynamic fields </h2>
+        </div>
     </div>
-  </div>
 </header>
 
 
-<br /><br />
+<br />
+<br />
 
 <div class="container">
 
@@ -24,53 +25,62 @@
     <div class="row">
         <div class="col-lg-8">
 
-            @using ( Html.BeginForm( "Home", "Index", FormMethod.Post, new { @class = "form-inline", role = "form" } ) )
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-inline", role = "form" }))
             {
                 <fieldset>
                     <legend>Personal Information</legend>
                     <div class="form-group">
-                        @Html.LabelFor( model => model.Pessoa.Nome )
-                        @Html.TextBoxFor( model => model.Pessoa.Nome, new { data_bind = "value: Pessoa.Nome", @class = "form-control" } )
+                        @Html.LabelFor(model => model.Person.Name)
+                        @Html.TextBoxFor(model => model.Person.Name, new { data_bind = "value: Person.Name", @class = "form-control" })
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor( model => model.Pessoa.Idade )
-                        @Html.TextBoxFor( model => model.Pessoa.Idade, new { data_bind = "value: Pessoa.Idade", @class = "form-control" } )
+                        @Html.LabelFor(model => model.Person.Age)
+                        @Html.TextBoxFor(model => model.Person.Age, new { data_bind = "value: Person.Age", @class = "form-control" })
                     </div>
                 </fieldset>
                 
                 <br />
                 <br />
-                <div data-bind='with:Pessoa' class="form-dinamico">
-                   
-                     <fieldset>
+                <div data-bind='with: Person' class="form-dinamico">
+
+                    <fieldset>
                         <legend>Recent Jobs</legend>
-                        <button data-bind="click: addEmprego" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-plus-sign"></span> Add job</button>
-                        <!-- ko foreach: Empregos  -->
-                        @Html.EditorFor( model => model.Pessoa.Empregos[ 0 ] )
-                        <!-- /ko -->
+                        <button data-bind="click: addJob" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span>Add job</button>
+
+                        <div class="dynamic-container">
+                            <!-- ko foreach: Jobs  -->
+                            @Html.EditorFor(model => model.Person.Jobs[0])
+                            <!-- /ko -->
+                        </div>
                     </fieldset>
 
-               
+
 
                     <fieldset>
-                        <button data-bind="click: addCurso" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> Add course</button>
+                        <button data-bind="click: addCourse" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span>Add course</button>
                         <legend>Courses</legend>
-                        <!-- ko foreach: Cursos  -->
-                        @Html.EditorFor( model => model.Pessoa.Cursos[ 0 ] )
-                        <!-- /ko -->
+
+                        <div class="dynamic-container">
+                            <!-- ko foreach: Courses  -->
+                            @Html.EditorFor(model => model.Person.Courses[0])
+                            <!-- /ko -->
+                        </div>
                     </fieldset>
 
-                
+
 
                     <fieldset>
-                        <button data-bind="click: addApelido" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span> Add nickname</button>
+                        <button data-bind="click: addNickname" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus-sign"></span>Add nickname</button>
                         <legend>Nicknames</legend>
-                        <!-- ko foreach: Apelidos  -->
-                        @Html.EditorFor( model => model.Pessoa.Apelidos[ 0 ], "ApelidoVM" )
-                        <!-- /ko -->
+
+                        <div class="dynamic-container">
+                            <!-- ko foreach: Nicknames  -->
+                            @Html.EditorFor(model => model.Person.Nicknames[0], "NicknameVM")
+                            <!-- /ko -->
+                        </div>
                     </fieldset>
-                 
-                   
+
+
                     <input type="Submit" class="btn btn-primary btn-lg" value="Salvar" />
 
                     <br />
@@ -109,37 +119,37 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in
 
         // necessário quando se usa mapping plugins:
         // http://stackoverflow.com/questions/12333915/how-do-i-make-a-deep-copy-of-a-knockout-object-that-was-created-by-the-mapping-p
-        function deepClone(obj) {
-            return ko.mapping.fromJS(ko.mapping.toJS(obj));
+        function deepClone( obj ) {
+            return ko.mapping.fromJS( ko.mapping.toJS( obj ) );
         }
 
 
-        function installFunctions(root, propName) {
+        function installFunctions( root, propName ) {
 
-            var props = propName.split('.');
-            var collectionName = props.slice(-1)[0];
-            var unitName = collectionName.substring(0, collectionName.length - 1); // TODO: melhorar depois. Remove o s do final
-            var fnAddName = 'add' + unitName;                                // ex: AdicionarApelidos
-            var fnRemoveName = 'remove' + unitName;                               // ex: RemoverGrupos
-            var newItemName = 'Novo' + unitName;
+            var props = propName.split( '.' );
+            var collectionName = props.slice( -1 )[0];
+            var unitName = collectionName.substring( 0, collectionName.length - 1 );  // TODO: melhorar depois. Remove o s do final
+            var fnAddName = 'add' + unitName;                                       // ex: addNicknames
+            var fnRemoveName = 'remove' + unitName;                                 // ex: removeCourses
+            var newItemName = 'New' + unitName;
             var newItem = root[newItemName];
             var parent;
 
             props.shift(); // remove viewmodel root (first item)
 
             // change current root property
-            props.forEach(function (prop) {
+            props.forEach( function( prop ) {
                 parent = root;
                 root = root[prop];
-            });
+            } );
 
             // attach functions
-            parent[fnAddName] = function () {
-                root.push(newItem ? deepClone(newItem) : '');
+            parent[fnAddName] = function() {
+                root.push( newItem ? deepClone( newItem ) : '' );
             };
 
-            parent[fnRemoveName] = function (item) {
-                root.remove(item);
+            parent[fnRemoveName] = function( item ) {
+                root.remove( item );
             };
         }
 
@@ -157,56 +167,56 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit fusce vel sapien elit in
             // ref: http://lostechies.com/erichexter/2012/11/29/loading-knockout-view-models-from-asp-net-mvc/
 
             //  (1) C# --> json string 
-            var jsonModel = '@Html.Raw( @Model.ToJson() )';
+            var jsonModel = '@Html.Raw(@Model.ToJson())';
 
-        //  (2) json string --> objeto javascript
-        // usa o mapping plugin para tranformar a string json que representa o viewmodel serializado, em observables do ko
-        //homeViewModel = ko.mapping.fromJSON(jsonModel);   // ref: http://knockoutjs.com/documentation/plugins-mapping.html
-        var viewModel = ko.mapping.fromJSON(jsonModel);
+            //  (2) json string --> objeto javascript
+            // usa o mapping plugin para tranformar a string json que representa o viewmodel serializado, em observables do ko
+            //homeViewModel = ko.mapping.fromJSON(jsonModel);   // ref: http://knockoutjs.com/documentation/plugins-mapping.html
+            var viewModel = ko.mapping.fromJSON( jsonModel );
 
-        //homeViewModel.adicionarEmprego = function () {
-        //    homeViewModel.Pessoa.Empregos.push(deepClone(this.NovoEmprego));
-        //};
+            //homeViewModel.adicionarEmprego = function () {
+            //    homeViewModel.Person.Empregos.push(deepClone(this.NovoEmprego));
+            //};
 
-        //homeViewModel.removerEmprego = function (emprego) {
-        //    homeViewModel.Pessoa.Empregos.remove(emprego);
-        //};
-
-
-        //homeViewModel.adicionarCurso = function () {
-        //    homeViewModel.Pessoa.Cursos.push(deepClone(this.NovoCurso));
-        //};
-
-        //homeViewModel.removerCurso = function (curso) {
-        //    homeViewModel.Pessoa.Cursos.remove(curso);
-        //};
-
-        ////TODo: erro na exclusão
-        //homeViewModel.adicionarApelido = function () {
-        //    homeViewModel.Pessoa.Apelidos.push("");
-        //};
-
-        //homeViewModel.removerApelido = function (apelido) {
-        //    homeViewModel.Pessoa.Apelidos.remove(apelido);
-        //};
-
-        // instala funções de adicionar e remover para as propriedades marcadas como dinamicas
-        viewModel.DynamicProperties()
-                 .forEach(function (propName) {
-                     installFunctions(viewModel, propName);
-                 });
-
-        return viewModel;
-    }
+            //homeViewModel.removerEmprego = function (emprego) {
+            //    homeViewModel.Person.Empregos.remove(emprego);
+            //};
 
 
-    $(function () {
+            //homeViewModel.adicionarCurso = function () {
+            //    homeViewModel.Person.Cursos.push(deepClone(this.NovoCurso));
+            //};
 
-        var homeViewModel = createViewModel();
+            //homeViewModel.removerCurso = function (curso) {
+            //    homeViewModel.Person.Cursos.remove(curso);
+            //};
 
-        // aplica os bindings do knockout
-        ko.applyBindings(homeViewModel);
-    });
+            ////TODo: erro na exclusão
+            //homeViewModel.adicionarApelido = function () {
+            //    homeViewModel.Person.Apelidos.push("");
+            //};
+
+            //homeViewModel.removerApelido = function (apelido) {
+            //    homeViewModel.Person.Apelidos.remove(apelido);
+            //};
+
+            // instala funções de adicionar e remover para as propriedades marcadas como dinamicas
+            viewModel.DynamicProperties()
+                     .forEach( function( propName ) {
+                         installFunctions( viewModel, propName );
+                     } );
+
+            return viewModel;
+        }
+
+
+        $( function() {
+
+            var homeViewModel = createViewModel();
+
+            // aplica os bindings do knockout
+            ko.applyBindings( homeViewModel );
+        } );
 
     </script>
 }

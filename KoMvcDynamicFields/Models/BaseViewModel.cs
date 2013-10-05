@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using KoMvcRepeatingFieldGroup.Common;
+using KoMvcDynamicFields.Common;
 
-namespace KoMvcRepeatingFieldGroup.Models
+namespace KoMvcDynamicFields.Models
 {
     public class BaseViewModel
     {

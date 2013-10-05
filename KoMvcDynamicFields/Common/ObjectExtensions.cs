@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace KoMvcRepeatingFieldGroup.Common
+namespace KoMvcDynamicFields.Common
 {
     public static class ObjectExtensions
     {

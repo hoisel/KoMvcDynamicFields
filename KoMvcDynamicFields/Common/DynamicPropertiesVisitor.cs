@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using KoMvcRepeatingFieldGroup.Common.Attributes;
+using KoMvcDynamicFields.Common.Attributes;
 
-namespace KoMvcRepeatingFieldGroup.Common
+namespace KoMvcDynamicFields.Common
 {
     /// <summary>
     /// Obtém o nome das propriedades de um objeto recursivamente

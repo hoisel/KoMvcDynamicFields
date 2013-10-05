@@ -1,13 +1,9 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using KoMvcDynamicFields.Models;
 
-namespace KoMvcRepeatingFieldGroup.Controllers
+namespace KoMvcDynamicFields.Controllers
 {
-    using System.Collections.Generic;
-    using System.Web.Mvc;
-    using KoMvcRepeatingFieldGroup.Models;
-
-
-
     public class HomeController : Controller
     {
         [HttpGet]
@@ -15,22 +11,22 @@ namespace KoMvcRepeatingFieldGroup.Controllers
         {
             var viewModel = new HomeViewModel
             {
-                Pessoa = new HomeViewModel.PessoaVM()
+                Person = new HomeViewModel.PersonVM()
                 {
-                    Nome = "Edgar",
-                    Idade = 27,
-                    Empregos = new List<HomeViewModel.EmpregoVM>{
-                            new HomeViewModel.EmpregoVM { Empresa = "Prodest", Cargo = "Analista" },
-                            new HomeViewModel.EmpregoVM { Empresa = "Sefaz", Cargo = "Analista" }, 
-                            new HomeViewModel.EmpregoVM { Empresa = "Sejus", Cargo = "Analista" } ,
-                            new HomeViewModel.EmpregoVM { Empresa = "Secom", Cargo = "Analista" }
+                    Name = "Edgar",
+                    Age = 27,
+                    Jobs = new List<HomeViewModel.JobVM>{
+                            new HomeViewModel.JobVM { Company = "Prodest", Job = "Analista" },
+                            new HomeViewModel.JobVM { Company = "Sefaz", Job = "Analista" }, 
+                            new HomeViewModel.JobVM { Company = "Sejus", Job = "Analista" } ,
+                            new HomeViewModel.JobVM { Company = "Secom", Job = "Analista" }
                         },
-                    Cursos = new List<HomeViewModel.CursoVM> { 
-                        new HomeViewModel.CursoVM {Id=1, Local="Mindworks",Nome="Knockoutjs em 24hrs" },
-                        new HomeViewModel.CursoVM {Id=2, Local="UFES",Nome="EF4 avançado" },
-                        new HomeViewModel.CursoVM {Id=3, Local="Sebrae",Nome="MVC pipeline" },
+                    Courses = new List<HomeViewModel.CourseVM> { 
+                        new HomeViewModel.CourseVM {Id=1, Local="Mindworks",Name="Knockoutjs em 24hrs" },
+                        new HomeViewModel.CourseVM {Id=2, Local="UFES",Name="EF4 avançado" },
+                        new HomeViewModel.CourseVM {Id=3, Local="Sebrae",Name="MVC pipeline" },
                     },
-                    Apelidos = new List<string> { "Ed","ed2","ed3","ed4"}
+                    Nicknames = new List<string> { "Ed","ed2","ed3","ed4"}
                 }
             };
             return this.View( viewModel );

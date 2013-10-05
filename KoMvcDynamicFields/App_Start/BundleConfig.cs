@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace KoMvcRepeatingFieldGroup
+namespace KoMvcDynamicFields
 {
     public class BundleConfig
     {

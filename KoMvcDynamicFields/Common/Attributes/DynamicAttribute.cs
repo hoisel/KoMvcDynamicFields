@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KoMvcRepeatingFieldGroup.Common.Attributes
+namespace KoMvcDynamicFields.Common.Attributes
 {
     // Marker attribute
     [System.AttributeUsage( System.AttributeTargets.Property, AllowMultiple = false,Inherited = true )]

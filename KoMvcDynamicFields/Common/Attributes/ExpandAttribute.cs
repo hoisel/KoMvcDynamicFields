@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KoMvcRepeatingFieldGroup.Common.Attributes
+namespace KoMvcDynamicFields.Common.Attributes
 {
     [AttributeUsage( AttributeTargets.Property, Inherited = true, AllowMultiple = false )]
     public sealed class ExpandAttribute : Attribute

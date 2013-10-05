@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="KoMvcRepeatingFieldGroup.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="KoMvcDynamicFields.MvcApplication" Language="C#" %>

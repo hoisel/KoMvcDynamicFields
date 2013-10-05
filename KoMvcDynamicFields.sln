@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoMvcDynamicFields", "KoMvcRepeatingFieldGroup\KoMvcDynamicFields.csproj", "{F560C443-102C-4873-A833-B3724D09080D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7AA9748E-A44B-4405-A5EB-054F3D13A1CE}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoMvcDynamicFields", "KoMvcDynamicFields\KoMvcDynamicFields.csproj", "{F560C443-102C-4873-A833-B3724D09080D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

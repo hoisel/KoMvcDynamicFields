@@ -1,0 +1,21 @@
+﻿@model KoMvcDynamicFields.Models.HomeViewModel.CourseVM
+
+<div class="dynamic-item">
+    <!-- salva i id num hidden field* -->
+    @Html.HiddenFor(model => model.Id, new { data_bind = "value: Id, dynamicName: $parent.Courses().length ", @class = "form-control" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { data_bind = "value: Name, dynamicName: $parent.Courses().length ", @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Local)
+        @Html.TextBoxFor(model => model.Local, new { data_bind = "value: Local, dynamicName: $parent.Courses().length ", @class = "form-control" })
+    </div>
+
+    <div class="delete-group">
+        <span data-bind="click: $parent.removeCourse" class="glyphicon glyphicon-remove-circle btn-delete" title="remove this item"></span>
+    </div>
+</div>
+

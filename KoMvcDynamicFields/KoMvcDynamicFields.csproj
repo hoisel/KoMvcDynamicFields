@@ -178,9 +178,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\EmpregoVM.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\CursoVM.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\ApelidoVM.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\JobVM.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\CourseVM.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\NicknameVM.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

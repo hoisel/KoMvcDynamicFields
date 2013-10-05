@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using KoMvcRepeatingFieldGroup.Common.Attributes;
+using KoMvcDynamicFields.Common.Attributes;
 
-namespace KoMvcRepeatingFieldGroup.Models
+namespace KoMvcDynamicFields.Models
 {
     /// <summary>
     /// 
@@ -11,22 +11,22 @@ namespace KoMvcRepeatingFieldGroup.Models
         /// <summary>
         /// 
         /// </summary>
-        public EmpregoVM NovoEmprego
+        public JobVM NewJob
         {
-            get { return new EmpregoVM(); }
+            get { return new JobVM(); }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public CursoVM NovoCurso
+        public CourseVM NewCourse
         {
-            get { return new CursoVM(); }
+            get { return new CourseVM(); }
         }
 
 
         [Expand]
-        public PessoaVM Pessoa { get; set; }
+        public PersonVM Person { get; set; }
 
 
 
@@ -35,27 +35,27 @@ namespace KoMvcRepeatingFieldGroup.Models
         /// <summary>
         /// 
         /// </summary>
-        public class PessoaVM
+        public class PersonVM
         {
-            public string Nome { get; set; }
-            public int Idade { get; set; }
+            public string Name { get; set; }
+            public int Age { get; set; }
 
-            public PessoaVM()
+            public PersonVM()
             {
-                this.Empregos = new List<EmpregoVM>();
-                this.Cursos = new List<CursoVM>();
-                this.Apelidos = new List<string>();
+                this.Jobs = new List<JobVM>();
+                this.Courses = new List<CourseVM>();
+                this.Nicknames = new List<string>();
             }
 
 
             [Dynamic]
-            public List<EmpregoVM> Empregos { get; set; }
+            public List<JobVM> Jobs { get; set; }
 
             [Dynamic]
-            public List<CursoVM> Cursos { get; set; }
+            public List<CourseVM> Courses { get; set; }
 
             [Dynamic]
-            public List<string> Apelidos { get; set; }
+            public List<string> Nicknames { get; set; }
         }
 
 
@@ -63,21 +63,21 @@ namespace KoMvcRepeatingFieldGroup.Models
         /// <summary>
         /// Sem id
         /// </summary>
-        public class EmpregoVM
+        public class JobVM
         {
-            public string Empresa { get; set; }
+            public string Company { get; set; }
 
-            public string Cargo { get; set; }
+            public string Job { get; set; }
         }
 
 
         /// <summary>
         ///  Com id
         /// </summary>
-        public class CursoVM
+        public class CourseVM
         {
             public int Id { get; set; }
-            public string Nome { get; set; }
+            public string Name { get; set; }
             public string Local { get; set; }
         }
     }
